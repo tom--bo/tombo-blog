@@ -1,6 +1,7 @@
 <?php
 
 class PostsController extends AppController {
+	public $uses = array('Post', 'User', 'Category');
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session', 'Auth');
 	public $layout = 'tblog';
@@ -25,10 +26,14 @@ class PostsController extends AppController {
 		$this -> set('posts', $this->Post->find('all'));
 	}
 
-	public function view($id = null){
-		if(!$post) throw new NotFoundException(__('Invalid post'));
+	public function view($category_id = null){
+	    if(!isset($this->params['url']['category_id'])) throw new NotFoundException(__('Invalid post'));
+	    if(!isset($this->params['url']['date'])) throw new NotFoundException(__('Invalid post'));
+
 		$data = $this->paginate();
 		$this->set('data', $data);
+		$data2 = $this->Post->find('all');
+		$this->set('data2', $data2);
 
 	}
 

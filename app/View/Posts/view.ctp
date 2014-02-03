@@ -1,5 +1,6 @@
 
 <?php 
+    pr($data2);
 
     echo 'created:  '.$data[0]['Post']['created'].'<br>';
     echo 'modified:  '.$data[0]['Post']['modified'].'<br>';
@@ -16,5 +17,6 @@
     echo $this->Paginator->next('next', array());
     echo '|';
     echo $this->Paginator->last('last', array());
+
 ?>
 

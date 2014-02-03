@@ -7,10 +7,42 @@
 <h3>Categories</h3>
 <div class="margin30">
 <ul>
-    <li>PHP(CakePHP)</li>
-    <li>Node.js</li>
-    <li>Titanium</li>
-    <li>(ALL)</li>
+    <li><?php echo $this->Html->link('PHP(CakePHP)', array(
+    	'controller' => 'posts',
+    	'action' => 'view',
+        '?' => array(
+            'category_id' => 1,
+            'date' => 0
+        ))
+    )
+    ?></li>
+	<li><?php echo $this->Html->link('Node.js', array(
+    	'controller' => 'posts',
+        'action' => 'view',
+        '?' => array(
+            'category_id' => 2,
+            'date' => 0
+        ))
+    )
+    ?></li>
+	<li><?php echo $this->Html->link('Titanium', array(
+    	'controller' => 'posts',
+    	'action' => 'view',
+        '?' => array(
+            'category_id' => 3,
+            'date' => 0
+        ))
+    )
+    ?></li>
+	<li><?php echo $this->Html->link('(ALL))', array(
+    	'controller' => 'posts',
+    	'action' => 'view',
+        '?' => array(
+            'category_id' => 4,
+            'date' => 0
+        ))
+    )
+    ?></li>
 </ul>
 </div>
 <br>

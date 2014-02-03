@@ -53,17 +53,64 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				<br>
 				<h3>category</h3>
 				<ul>
-					<li>PHP(CakePHP)</li>
-					<li>node.js</li>
-					<li>Titanium</li>
-					<li>(ALL)</li>
+				    <li><?php echo $this->Html->link('PHP(CakePHP)', array(
+				    	'controller' => 'posts',
+				    	'action' => 'view',
+				        '?' => array(
+					    	'category_id' => 1,
+					    	'date' => 0
+				        ))
+				    )
+				    ?></li>
+					<li><?php echo $this->Html->link('Node.js', array(
+				    	'controller' => 'posts',
+				    	'action' => 'view',
+				        '?' => array(
+					    	'category_id' => 2,
+					    	'date' => 0
+				        ))
+				    )
+				    ?></li>
+					<li><?php echo $this->Html->link('Titanium', array(
+				    	'controller' => 'posts',
+				    	'action' => 'view',
+				        '?' => array(
+					    	'category_id' => 3,
+					    	'date' => 0
+				        ))
+				    )
+				    ?></li>
+					<li><?php echo $this->Html->link('(ALL)', array(
+				    	'controller' => 'posts',
+				    	'action' => 'view',
+				        '?' => array(
+					    	'category_id' => 0,
+					    	'date' => 0
+				        ))
+				    )
+				    ?></li>
 				</ul>
 				<br>
 				<h3>Archives</h3>
 				<ul>
-					<li>2014/Feb</li>
-					<li>2014/Mar</li>
-					<li>2014/Apr</li>
+					<li><?php echo $this->Html->link('2014/Feb', array(
+				    	'controller' => 'posts',
+				    	'action' => 'view',
+				        '?' => array(
+					    	'category_id' => 0,
+					    	'date' => 1
+				        ))
+				    )
+				    ?></li>
+					<li><?php echo $this->Html->link('2014/Mar', array(
+				    	'controller' => 'posts',
+				    	'action' => 'view',
+				        '?' => array(
+					    	'category_id' => 0,
+					    	'date' => 2
+				        ))
+				    )
+				    ?></li>
 				</ul>
 			</div>
 		</div>
