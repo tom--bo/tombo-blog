@@ -3,8 +3,21 @@
 class PostsController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
+	public $layout = 'tblog';
+	public $paginate = array(
+		'conditions' => array(),
+		'fields' => array('title', 'body', 'category_id', 'user_id', 'created', 'modified'),
+		'sort' => 'modified',
+		'limit' => '1',
+		'direction' => 'desc'
+	);
 
 	public function index(){
+		$post = $this->paginate();
+		$this -> set('posts', $post);
+	}
+
+	public function manage(){
 		$this -> set('posts', $this->Post->find('all'));
 	}
 

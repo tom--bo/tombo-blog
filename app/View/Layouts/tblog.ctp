@@ -28,9 +28,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-
-		echo $this->Html->css('cake.generic');
-
+		echo $this->Html->css('cake.my-blog');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
@@ -39,22 +37,39 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
+			<?php echo $this->Html->image('blog_title.png', array('alt' =>'title', 'url'=>array('controller'=>'posts','action'=>'index'))); ?>
 		</div>
+
 		<div id="content">
 
+			<div id="article">
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
+			</div>
+
+			<div id="sidebar">
+				<h3>profile</h3>
+				<div>情報系の学生のブログです。php(cakephp), js, を中心にweb関係の開発について書いてくと思います。</div>
+				<br>
+				<h3>category</h3>
+				<ul>
+					<li>PHP(CakePHP)</li>
+					<li>node.js</li>
+					<li>Titanium</li>
+					<li>(ALL)</li>
+				</ul>
+				<br>
+				<h3>Archives</h3>
+				<ul>
+					<li>2014/Feb</li>
+					<li>2014/Mar</li>
+					<li>2014/Apr</li>
+				</ul>
+			</div>
 		</div>
+
 		<div id="footer">
-			<?php 
-				echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
+			<div>tom_blog</div>
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
