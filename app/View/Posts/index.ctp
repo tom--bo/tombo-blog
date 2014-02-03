@@ -35,29 +35,5 @@
 
 <br><br>
 
-<?php 
-    // pr($posts);
-
-    echo 'created:  '.$posts[0]['Post']['created'].'<br>';
-    echo 'modified:  '.$posts[0]['Post']['modified'].'<br>';
-    echo 'title:  '.$posts[0]['Post']['title'].'<br>';
-    echo 'body:  '.$posts[0]['Post']['body'].'<br>';
-    echo 'category_id:  '.$posts[0]['Post']['category_id'].'<br>';
-    echo 'user_id:  '.$posts[0]['Post']['user_id'].'<br>';
-    echo '<br>';
-
-    echo $this->Paginator->first('first', array());
-    echo '|';
-    echo $this->Paginator->prev('prev', array());
-    echo '|';
-    echo $this->Paginator->next('next', array());
-    echo '|';
-    echo $this->Paginator->last('last', array());
-?>
-
-
-
-<br><br>
-
 
 
