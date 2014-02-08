@@ -22,24 +22,23 @@ class PostsController extends AppController {
 	}
 
 	public function manage(){
-		$this -> set('posts', $this->Post->find('all'));
+		$this->set('posts', $this->Post->find('all'));
 	}
 
 	public function view($category_id = null){
 	    if(!isset($this->params['url']['category_id']) || !isset($this->params['url']['date'])) throw new NotFoundException(__('Invalid post'));
 
-	    $this->set('c_id', $this->params['url']['category_id']);
-	    
-		$data = $this->paginate();
-		$this->set('data', $data);
-
 		// カテゴリと日付のどちらが指定されているか
-		if($this->params['url']['date'] != 0){
+		if($this->params['url']['category_id'] != 0){
 			// カテゴリが指定されている場合
-
+		    $this->paginate['conditions'] = array('category_id' => $this->params['url']['category_id']);
+			$data = $this->paginate();
+			$this->set('data', $data);
 		}else{
 			//　日付が指定されている場合
-
+		    // $this->paginate['conditions'] = array('category_id' => $this->params['url']['date']);
+			// $data = $this->paginate();
+			// $this->set('data', $data);
 		}
 
 
