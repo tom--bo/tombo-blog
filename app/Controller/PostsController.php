@@ -7,7 +7,7 @@ class PostsController extends AppController {
 	public $layout = 'tblog';
 	public $paginate = array(
 		'conditions' => array(),
-		'fields' => array('title', 'body', 'category_id', 'user_id', 'created', 'modified'),
+		'fields' => array('title', 'body', 'category_id', 'user_id', 'user.username', 'category.category_name', 'created', 'modified'),
 		'sort' => 'modified',
 		'limit' => '1',
 		'direction' => 'desc'
@@ -15,8 +15,7 @@ class PostsController extends AppController {
 
 
 	public function beforeFilter(){
-		$this->Auth->allow('index');
-		$this->Auth->allow('logout');
+		$this->Auth->allow(array('index', 'logout', 'view'));
 	}
 
 	public function index(){
@@ -27,13 +26,22 @@ class PostsController extends AppController {
 	}
 
 	public function view($category_id = null){
-	    if(!isset($this->params['url']['category_id'])) throw new NotFoundException(__('Invalid post'));
-	    if(!isset($this->params['url']['date'])) throw new NotFoundException(__('Invalid post'));
+	    if(!isset($this->params['url']['category_id']) || !isset($this->params['url']['date'])) throw new NotFoundException(__('Invalid post'));
 
+	    $this->set('c_id', $this->params['url']['category_id']);
+	    
 		$data = $this->paginate();
 		$this->set('data', $data);
-		$data2 = $this->Post->find('all');
-		$this->set('data2', $data2);
+
+		// カテゴリと日付のどちらが指定されているか
+		if($this->params['url']['date'] != 0){
+			// カテゴリが指定されている場合
+
+		}else{
+			//　日付が指定されている場合
+
+		}
+
 
 	}
 

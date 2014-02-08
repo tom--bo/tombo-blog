@@ -48,10 +48,11 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 			</div>
 
 			<div id="sidebar">
-				<h3>profile</h3>
+				<h3>Profile</h3>
 				<div>情報系の学生のブログです。php(cakephp), js, を中心にweb関係の開発について書いてくと思います。</div>
 				<br>
-				<h3>category</h3>
+				<br>
+				<h3>Category</h3>
 				<ul>
 				    <li><?php echo $this->Html->link('PHP(CakePHP)', array(
 				    	'controller' => 'posts',
@@ -91,6 +92,21 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				    ?></li>
 				</ul>
 				<br>
+				<h3>Collaboration</h3>
+				<ul>
+				    <li><?php echo $this->Html->link('KinecDrone', array(
+				    	'controller' => 'posts',
+				    	'action' => 'view',
+				        '?' => array(
+					    	'category_id' => 4,
+					    	'date' => 0
+				        ))
+				    )
+				    ?></li>
+				</ul>
+				<br>
+
+
 				<h3>Archives</h3>
 				<ul>
 					<li><?php echo $this->Html->link('2014/Feb', array(
@@ -112,6 +128,13 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 				    )
 				    ?></li>
 				</ul>
+				<br><br>
+				<?php echo $this->Html->link('<HOME>', array(
+			    	'controller' => 'posts',
+			    	'action' => 'index',
+			        )
+			    )
+			    ?>
 			</div>
 		</div>
 
