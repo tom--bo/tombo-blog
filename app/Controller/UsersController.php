@@ -6,7 +6,7 @@ class UsersController extends AppController{
 
 	public function beforeFilter(){
 		// $this->Auth->allow('adduser');
-		$this->Auth->allow('logout');
+		$this->Auth->allow('logout', 'adduser');
 	}
 
 	public function adduser(){

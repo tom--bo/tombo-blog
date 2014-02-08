@@ -31,7 +31,10 @@ class PostsController extends AppController {
 		// カテゴリと日付のどちらが指定されているか
 		if($this->params['url']['category_id'] != 0){
 			// カテゴリが指定されている場合
-		    $this->paginate['conditions'] = array('category_id' => $this->params['url']['category_id']);
+			if($this->params['url']['category_id'] == 4){
+			}else{
+			    $this->paginate['conditions'] = array('category_id' => $this->params['url']['category_id']);
+			}
 			$data = $this->paginate();
 			$this->set('data', $data);
 		}else{

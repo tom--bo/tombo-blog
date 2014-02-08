@@ -1,4 +1,8 @@
 <?php 
+
+    echo $this->Html->css("article");
+
+
     if(empty($data)){
         echo "<br><br><br>";
         echo "<h3>まだ記事がありません...</h3>";
@@ -7,11 +11,6 @@
     }else{
         $dataFlag = 1;
         // echo '<div id="article_box">';
-        echo 'title:  '.$data[0]['Post']['title'].'<br>';
-        echo 'body:  '.$data[0]['Post']['body'].'<br>';
-        echo 'category_name:  '.$data[0]['Category']['category_name'].'<br>';
-        echo 'user_name:  '.$data[0]['User']['username'].'<br>';
-        echo 'creaetd:  '.date('Y/m/d', strtotime($data[0]['Post']['created'])).'<br>';
         echo '<br>';
     }
 
@@ -20,18 +19,35 @@
 
 <div id="article_box">
     <div id="article_head">
-        <?php if($dataFlag){
+        <div id="article_head_date">
+            <?php if($dataFlag){
+                echo '<br>'.date('Y/m/d', strtotime($data[0]['Post']['created'])).'<br>';
+            } ?>
+        </div>
+        <div id="article_head_title">
+            <?php if($dataFlag){
+                echo $data[0]['Post']['title'];
 
-        }?>
+            }?>
+        </div>
+        <div id="article_head_info">
+            <?php if($dataFlag){
+                echo 'Category:  '.$data[0]['Category']['category_name'];
+                echo '&nbsp&nbsp&nbsp&nbsp';
+                echo 'Author:  '.$data[0]['User']['username'].'<br>';
+            }?>
+        </div>
+        <div style="clear:both;"></div>
     </div>
     <div id="article_body">
         <?php if($dataFlag){
+            echo nl2br($data[0]['Post']['body']);
 
         }?>
     </div>
     <div id="article_foot">
         <?php if($dataFlag){
-
+            echo '<hr><br>';
         }?>
     </div>
 </div>
