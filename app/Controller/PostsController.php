@@ -32,8 +32,14 @@ class PostsController extends AppController {
 		if($this->params['url']['category_id'] != 0){
 			// カテゴリが指定されている場合
 			if($this->params['url']['category_id'] == 4){
+			    $this->paginate['conditions'] = array(
+			    	'release_flag' => 1
+		    	);
 			}else{
-			    $this->paginate['conditions'] = array('category_id' => $this->params['url']['category_id']);
+			    $this->paginate['conditions'] = array(
+			    	'category_id' => $this->params['url']['category_id'],
+			    	'release_flag' => 1
+		    	);
 			}
 			$data = $this->paginate();
 			$this->set('data', $data);
